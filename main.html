@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .letter {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-width: 400px;
+        }
+        .stamp {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 50px;
+            height: 50px;
+            background: red;
+            border-radius: 50%;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .yes { background: red; color: white; }
+        .no { background: gray; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container" id="page1">
+        <div class="letter">
+            <div class="stamp">❤️</div>
+            <p>My dearest love,</p>
+            <p>You are the light of my life, the joy in my days, and the warmth in my heart. 
+            Will you be my Valentine?</p>
+        </div>
+        <div class="buttons">
+            <button class="yes" onclick="nextPage('page2')">Yes</button>
+            <button class="no" onclick="this.parentElement.parentElement.style.display='none'">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="page2" style="display:none;">
+        <h2>[Dog Image Placeholder]</h2>
+        <button class="yes" onclick="nextPage('page3')">❤️</button>
+    </div>
+
+    <div class="container" id="page3" style="display:none;">
+        <h2>[Peonies Bouquet in CSS Placeholder]</h2>
+        <button class="yes" onclick="nextPage('page4')">💐</button>
+    </div>
+
+    <div class="container" id="page4" style="display:none;">
+        <h2>My Love Poem</h2>
+        <p>You are my sun, my moon, my stars so bright,<br>
+        The warmth in my heart, my guiding light.<br>
+        Each day with you is a dream come true,<br>
+        My heart beats stronger, only for you.</p>
+    </div>
+
+    <script>
+        function nextPage(pageId) {
+            document.querySelectorAll('.container').forEach(div => div.style.display = 'none');
+            document.getElementById(pageId).style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
